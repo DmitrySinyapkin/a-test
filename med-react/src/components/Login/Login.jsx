@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import './Login.scss'
 import { validateLogin, validatePassword } from '../../utils/validators.js'
 import { loginUser } from "../../api/fakeApi";
+import { useNavigate } from "react-router-dom";
 
 const Login = ({ closeHandler, loginHandler }) => {
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
     const [loginMessage, setLoginMessage] = useState('')
     const [passwordMessage, setPasswordMessage] = useState('')
+
+    const navigate = useNavigate()
 
     const messages = {
         login: {
@@ -40,6 +43,7 @@ const Login = ({ closeHandler, loginHandler }) => {
                 .then(resp => {
                     loginHandler(resp)
                     closeHandler()
+                    navigate('/profile')
                 })
                 .catch(err => alert(err.message))
         }

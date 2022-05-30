@@ -1,12 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './Header.scss'
 import logo from './logo.svg'
 
 const Header = ({ loggedIn, modalHandler, logoutHandler }) => {
+    const navigate = useNavigate()
+
     return (
         <div className="header">
-            <div className="header__logo">
+            <div className="header__logo" onClick={() => navigate('/')}>
                 <img className="logo__img" src={logo} alt="logo" />
             </div>
             <div className="header__controls">
