@@ -1,10 +1,13 @@
 .App {
-  a {
-    color: black;
-    text-decoration: none;
+  background: white;
 
-    &:hover {
-      text-decoration: none;
-    }
+  .modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    top: 0;
+    left: 0;
   }
 }
