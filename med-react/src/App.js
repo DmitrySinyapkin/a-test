@@ -39,7 +39,7 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home isLoggedin={user.name && true} loginHandler={handleModalOpen} logoutHandler={handleLogout} />} />
           <Route path='/profile' element={<Profile username={user.name} logoutHandler={handleLogout} />} />
           <Route path='/contacts' element={<Contacts />} />
         </Routes>
