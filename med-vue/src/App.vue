@@ -1,30 +1,107 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="app">
+    <header>
+      <app-header :loggedIn="loggedIn" :logoutHandler="handleLogout" :modalHandler="handleModalOpen" />
+    </header>
+    <main>
+      <router-view />
+    </main>
+  </div>
 </template>
 
+<script>
+import AppHeader from "./components/AppHeader.vue";
+
+export default {
+  components: {
+    AppHeader,
+  },
+  data() {
+    return {
+      user: {},
+      isModalOpen: false
+    }
+  },
+  computed: {
+    loggedIn() {
+      return this.user.name ? true : false
+    }
+  },
+  methods: {
+    handleLogin(user) {
+      this.user = user
+      localStorage.setItem('med-vue-user', JSON.stringify(user))
+    },
+    handleLogout() {
+      this.user = {}
+      localStorage.removeItem('med-vue-user')
+    },
+    handleModalOpen() {
+      this.isModalOpen = true
+    },
+    handleModalClose() {
+      this.isModalOpen = false
+    }
+  },
+  created() {
+    this.user = localStorage.getItem('med-vue-user') ? JSON.parse(localStorage.getItem('med-vue-user')) : {}
+  }
+};
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-nav {
-  padding: 30px;
+a,
+a:hover {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
+  color: #737373;
+  text-decoration: none;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+.button {
+  border: 2px solid #ff685b;
+  border-radius: 7px;
+  cursor: pointer;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 20px;
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  &:hover {
+    box-shadow: 0px 0px 88px -50px rgba(255, 104, 91, 1);
+  }
+
+  &_white {
+    background: white;
+    color: #ff685b;
+  }
+
+  &_red {
+    background: #ff685b;
+    color: white;
+  }
+}
+
+.app {
+  background: white;
+
+  .modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    top: 0;
+    left: 0;
   }
 }
 </style>
