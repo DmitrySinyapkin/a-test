@@ -1,51 +1,65 @@
 <template>
   <div class="app">
     <header>
-      <app-header :loggedIn="loggedIn" :logoutHandler="handleLogout" :modalHandler="handleModalOpen" />
+      <app-header
+        :loggedIn="loggedIn"
+        @logoutHandler="handleLogout"
+        @modalHandler="handleModalOpen"
+      />
     </header>
     <main>
       <router-view />
+      <div v-if="isModalOpen" class="modal">
+        <app-login
+          @closeHandler="handleModalClose"
+          @loginHandler="handleLogin"
+        />
+      </div>
     </main>
   </div>
 </template>
 
 <script>
 import AppHeader from "./components/AppHeader.vue";
+import AppLogin from "./components/AppLogin.vue";
 
 export default {
   components: {
     AppHeader,
+    AppLogin,
   },
   data() {
     return {
       user: {},
-      isModalOpen: false
-    }
+      isModalOpen: false,
+    };
   },
   computed: {
     loggedIn() {
-      return this.user.name ? true : false
-    }
+      return this.user.name ? true : false;
+    },
   },
   methods: {
     handleLogin(user) {
-      this.user = user
-      localStorage.setItem('med-vue-user', JSON.stringify(user))
+      this.user = user;
+      localStorage.setItem("med-vue-user", JSON.stringify(user));
     },
     handleLogout() {
-      this.user = {}
-      localStorage.removeItem('med-vue-user')
+      this.user = {};
+      localStorage.removeItem("med-vue-user");
     },
     handleModalOpen() {
-      this.isModalOpen = true
+      this.isModalOpen = true;
     },
     handleModalClose() {
-      this.isModalOpen = false
-    }
+      this.isModalOpen = false;
+    },
   },
   created() {
-    this.user = localStorage.getItem('med-vue-user') ? JSON.parse(localStorage.getItem('med-vue-user')) : {}
-  }
+    this.user = localStorage.getItem("med-vue-user")
+      ? JSON.parse(localStorage.getItem("med-vue-user"))
+      : {};
+  },
 };
 </script>
 

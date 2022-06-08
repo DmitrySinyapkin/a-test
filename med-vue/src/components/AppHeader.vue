@@ -35,16 +35,15 @@ export default {
     },
   },
   props: {
-    loggedIn: Boolean,
-    logoutHandler: Function,
-    modalHandler: Function,
+    loggedIn: Boolean
   },
+  emits: ['logoutHandler', 'modalHandler'],
   methods: {
     handleLogout() {
-      this.$emits.logoutHandler();
+      this.$emit('logoutHandler');
     },
     handleModalOpen() {
-      this.$emits.modalHandler();
+      this.$emit('modalHandler');
     },
   },
 };
