@@ -8,7 +8,7 @@
       />
     </header>
     <main>
-      <router-view />
+      <router-view @handleLogout="handleLogout" />
       <div v-if="isModalOpen" class="modal">
         <app-login
           @closeHandler="handleModalClose"
@@ -22,6 +22,7 @@
 <script>
 import AppHeader from "./components/AppHeader.vue";
 import AppLogin from "./components/AppLogin.vue";
+import router from './router/index'
 
 export default {
   components: {
@@ -47,6 +48,7 @@ export default {
     handleLogout() {
       this.user = {};
       localStorage.removeItem("med-vue-user");
+      router.push('/')
     },
     handleModalOpen() {
       this.isModalOpen = true;
