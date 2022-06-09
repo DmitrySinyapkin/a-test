@@ -1,0 +1,70 @@
+<template>
+    <div class="card">
+        <figure class="card__icon">
+            <img :src="data.icon" alt='icon' />
+        </figure>
+        <h5 class="card__title">{{data.title}}</h5>
+        <div class="card__line"></div>
+        <div class="card__text">{{data.text}}</div>
+    </div>
+</template>
+
+<script>
+export default {
+    name: 'ServiceCard',
+    props: {
+        data: Object
+    }
+}
+</script>
+
+<style lang="scss">
+.card {
+    width: 328px;
+    height: 248px;
+    background: white;
+    box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 35px 40px;
+    gap: 20px;
+
+    &__icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 200px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__title {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.1px;
+        color: #252B42;
+    }
+
+    &__line {
+        width: 50px;
+        height: 2px;
+        background: #E74040;
+    }
+
+    &__text {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.2px;
+        color: #737373;
+    }
+}
+</style>
