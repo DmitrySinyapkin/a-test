@@ -1,13 +1,15 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: [
-        './src/js/index.js'
-    ],
-    output: {
-        filename: './js/bundle.js'
+    entry: {
+        main: './src/js/main.js',
+        profile: './src/js/profile.js'
     },
-    devtool: 'source-map',
+    output: {
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'dist')
+    },
     module: {
         rules: [
             {
@@ -16,33 +18,45 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: 'env'
+                        presets: ['@babel/preset-env']
                     }
                 }
             },
             {
                 test: /\.(sass|scss)$/,
-                include: path.resolve(__dirname, 'src/scss'),
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ]
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 use: [
                     {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true,
-                            minimize: true,
-                            url: false
-                        }
+                      loader: 'file-loader',
+                      options: {
+                        name: '[name].[ext]',
+                        outputPath: 'assets',
+                      }
                     },
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: true 
-                        }
-                    }
-                ]
-            }
+                  ],
+          
+              },
         ]
     },
     plugins: [
-
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: 'src/html/index.html',
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'contacts.html',
+            template: 'src/html/contacts.html',
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'profile.html',
+            template: 'src/html/profile.html',
+        }),
     ]
 }
