@@ -1,0 +1,64 @@
+@mixin form-font {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.login {
+    margin: 100px auto;
+    z-index: 200;
+    width: 300px;
+    height: fit-content;
+    background: white;
+    border-radius: 7px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+    &__title {
+        font-family: 'Montserrat';
+        font-weight: 700;
+        font-size: 34px;
+    }
+
+    &__field {
+        @include form-font();
+        padding-bottom: 10px;
+        position: relative;
+
+        .field__input {
+            @include form-font();
+            height: 40px;
+            border: none;
+            border-bottom: 1px solid black;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .field__message {
+            position: absolute;
+            top: 64px;
+            left: 0;
+            font-family: 'Montserrat';
+            font-size: 12px;
+            color: #FF685B;
+        }
+    }
+
+    &__controls {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+
+        .login__button {
+            width: 100px;
+            height: 40px;
+        }
+    }
+}

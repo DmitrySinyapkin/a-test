@@ -1,0 +1,46 @@
+.header {
+    width: 100%;
+    height: 80px;
+    padding: 0 70px;
+    border-bottom: 1px solid black;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 768px) {
+        padding: 0 10px;
+    }
+
+    &__logo {
+        width: 54px;
+        height: 23px;
+        cursor: pointer;
+
+        .logo__img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+    }
+
+    &__controls {
+        display: flex;
+        gap: 60px;
+        align-items: center;
+
+        @media (max-width: 768px) {
+            gap: 10px;
+        }
+
+        .button__login {
+            width: 186px;
+            height: 40px;
+
+            @media (max-width: 768px) {
+                width: 106px;
+                height: 36px;
+            }
+        }
+    }
+}

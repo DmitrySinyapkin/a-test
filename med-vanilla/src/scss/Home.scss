@@ -1,0 +1,62 @@
+.home {
+    padding: 120px 200px;
+
+    @media (min-width: 768px) and (max-width: 1224px) {
+        padding: 70px 10px;
+    }
+
+    @media (max-width: 767px) {
+        padding: 70px 10px;
+    }
+
+    &__title {
+        width: 727px;
+        margin-bottom: 35px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 58px;
+        line-height: 80px;
+        letter-spacing: 0.2px;
+        color: #252B42;
+
+        @media (max-width: 768px) {
+            width: 355px;
+            margin-bottom: 50px;
+            font-size: 28px;
+            line-height: 39px;
+        }
+    }
+
+    &__controls {
+        width: 310px;
+        display: flex;
+        gap: 10px;
+        margin-bottom: 100px;
+
+        @media (max-width: 768px) {
+            margin-bottom: 30px;
+        }
+
+        button {
+            width: 150px;
+            height: 52px;
+        }
+    }
+
+    &__cardlist {
+        width: 1024px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+
+        @media (min-width: 768px) and (max-width: 1200px) {
+            width: 676px;
+        }
+
+        @media (max-width: 767px) {
+            width: 100%;
+        }
+    }
+}
