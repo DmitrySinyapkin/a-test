@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@600&display=swap');
-@import './Card.scss';
-@import './Contacts.scss';
-@import './Header.scss';
-@import './Home.scss';
-@import './Login.scss';
-@import './Profile.scss';
+@import './components/Card.scss';
+@import './components/Contacts.scss';
+@import './components/Header.scss';
+@import './components/Home.scss';
+@import './components/Login.scss';
+@import './components/Profile.scss';
 
 * {
   margin: 0;
