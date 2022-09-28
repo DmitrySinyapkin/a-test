@@ -1,0 +1,17 @@
+[
+    {
+        "login": "vasya123",
+        "password": "vasyatest",
+        "name": "Василий"
+    },
+    {
+        "login": "Olga134",
+        "password": "olgapassword",
+        "name": "Ольга"
+    },
+    {
+        "login": "john_doe",
+        "password": "qwerty123",
+        "name": "Джонни"
+    }
+]
