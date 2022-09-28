@@ -11,24 +11,67 @@
         <div class="header">
             <div class="header__logo">
                 <a href="/index.html">
-                    <img class="logo__img" src="./assets/logo.svg" alt="logo" />
+                    <img class="logo__img" src="assets/logo.svg" alt="logo" />
                 </a>
             </div>
             <div class="header__controls">
                 <a href='/contacts.html'>Контакты</a>
-                <a href='/profile.html'>Профиль</a>
-                <!-- {loggedIn
-                    ?
-                    <button class="button button_white button__login" onClick={logoutHandler}>Выйти</button>
-                    :
-                    <button class="button button_white button__login" onClick={modalHandler}>Войти</button>
-                } -->
+                <button class="button button_white button__login"></button>
             </div>
         </div>
     </header>
     <main>
-        <h1 class="home__title">Главная</h1>
+        <div class="home">
+            <h1 class="home__title">Место для получения медицинской помощи</h1>
+            <div class="home__controls">
+                <button class="button button_white button__login"></button>
+                <button class="button button_white button__contacts">Контакты</button>
+            </div>
+            <div class="home__cardlist">
+                <div class="card">
+                    <figure class="card__icon">
+                        <img src="assets/card1.svg" alt='icon' />
+                    </figure>
+                    <h5 class="card__title">'Онлайн-прием'</h5>
+                    <div class="card__line"></div>
+                    <div class="card__text">Рыба текст</div>
+                </div>
+                <div class="card">
+                    <figure class="card__icon">
+                        <img src="assets/card2.svg" alt='icon' />
+                    </figure>
+                    <h5 class="card__title">'Экстренный Случай'</h5>
+                    <div class="card__line"></div>
+                    <div class="card__text">Рыба текст</div>
+                </div>
+                <div class="card">
+                    <figure class="card__icon">
+                        <img src="assets/card3.svg" alt='icon' />
+                    </figure>
+                    <h5 class="card__title">'Лечение рака'</h5>
+                    <div class="card__line"></div>
+                    <div class="card__text">Рыба текст</div>
+                </div>
+            </div>
+          </div>
     </main>
-    <script src="./main.bundle.js"></script>
+    <div class="modal">
+        <form class="login">
+            <div class="login__title">Войти:</div>
+                <label class="login__field">
+                    Логин: <input class="field__input field__login" type='text'/>
+                    <div class="field__message"></div>
+                </label>
+                <label class="login__field">
+                    Пароль: <input class="field__input field__password" type='password'/>
+                    <div class="field__message"></div>
+                </label>
+            <div class="login__controls">
+                <button class="button button_white login__button_submit">Войти</button>
+                <button class="button button_white login__button_cancel">Отмена</button>
+            </div>
+        </form>`
+      </div>
+    <script src="main.bundle.js"></script>
 </body>
 </html>

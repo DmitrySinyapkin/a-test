@@ -16,18 +16,31 @@
             </div>
             <div class="header__controls">
                 <a href='/contacts.html'>Контакты</a>
-                <a href='/profile.html'>Профиль</a>
-                <!-- {loggedIn
-                    ?
-                    <button class="button button_white button__login" onClick={logoutHandler}>Выйти</button>
-                    :
-                    <button class="button button_white button__login" onClick={modalHandler}>Войти</button>
-                } -->
+                <button class="button button_white button__login"></button>
             </div>
         </div>
     </header>
     <main>
-        <h1 class="home__title">Контакты</h1>
+        <div class="contacts">
+            <h1 class="contacts__title">Контакты</h1>
+        </div>
     </main>
+    <div class="modal">
+        <form class="login">
+            <div class="login__title">Войти:</div>
+                <label class="login__field">
+                    Логин: <input class="field__input field__login" type='text'/>
+                    <div class="field__message"></div>
+                </label>
+                <label class="login__field">
+                    Пароль: <input class="field__input field__password" type='password'/>
+                    <div class="field__message"></div>
+                </label>
+            <div class="login__controls">
+                <button class="button button_white login__button_submit">Войти</button>
+                <button class="button button_white login__button_cancel">Отмена</button>
+            </div>
+        </form>`
+      </div>
 </body>
 </html>
